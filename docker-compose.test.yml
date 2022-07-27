@@ -1,0 +1,15 @@
+version: '2'
+
+services:
+  apache:
+    image: httpd:latest
+    container_name: my-apache-app
+    environment:
+      - VIRTUAL_HOST=anton.attilavarga.dev
+      - LETSENCRYPT_HOST=anton.attilavarga.dev
+    networks:
+      - custom_network
+
+networks:
+  custom_network:
+    name: nginx-proxy
